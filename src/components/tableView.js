@@ -69,7 +69,6 @@ export default function StickyHeadTable(props={}) {
             try {
                 const response = await fetch(url);
                 const json = await response.json();
-                console.log(json);
                 setID(id);
                 setModalData(json);
                 setOpen(true);
