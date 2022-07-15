@@ -3,8 +3,8 @@ import TableView from './tableView';
 import {
     API_URL, COINS_MARKET, EUR_CURR, MARKET_CAP_DESC
 } from '../constants';
-const AppContainer = () => {
 
+const AppContainer = () => {
     const [tableData, setTableData] = useState([]);
 
     useEffect(() => {
@@ -17,7 +17,6 @@ const AppContainer = () => {
             sparkline: false
         };
         Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
-
         const fetchData = async () => {
             try {
                 const response = await fetch(url);
@@ -37,7 +36,6 @@ const AppContainer = () => {
                 tableData={tableData}
             />
         }
-            
         </>
     )
 }
