@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TableView from './tableView';
 import {
-    API_URL, COINS_MARKET, EUR_CURR
+    API_URL, COINS_MARKET, EUR_CURR, MARKET_CAP_DESC
 } from '../constants';
 const AppContainer = () => {
 
@@ -11,7 +11,7 @@ const AppContainer = () => {
         let url = new URL(`${API_URL}${COINS_MARKET}`);
         let params = {
             vs_currency: EUR_CURR, 
-            order: 'market_cap_desc',
+            order: MARKET_CAP_DESC,
             per_page: 20,
             page: 1,
             sparkline: false

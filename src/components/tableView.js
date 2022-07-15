@@ -12,16 +12,17 @@ import TableRow from '@mui/material/TableRow';
 import Grid from '@mui/material/Grid';
 import Modal from '@mui/material/Modal';
 import {
-    API_URL
+    API_URL, LABEL_NAME, LABEL_SYMBOL, LABEL_CURRENT_PRICE, LABEL_HIGH_24_HRS_PRICE, LABEL_LOW_24_HRS_PRICE, CSS_RIGHT,
+    LABEL_HASHING_ALGO, LABEL_DISCRIPTION, LABEL_GENESIS_DT
 } from '../constants';
 
 const columns = [
   { id: 'image', label: '', minWidth: 30 },
-  { id: 'name', label: 'Name', minWidth: 100 },
-  { id: 'symbol', label: 'Symbol', minWidth: 30 },
-  { id: 'current_price', label: 'Current Price', minWidth: 170, align: 'right'},
-  { id: 'high_24h', label: 'High 24 hour price', minWidth: 170, align: 'right'},
-  { id: 'low_24h', label: 'Low 24 hour price', minWidth: 170, align: 'right'},
+  { id: 'name', label: LABEL_NAME, minWidth: 100 },
+  { id: 'symbol', label: LABEL_SYMBOL, minWidth: 30 },
+  { id: 'current_price', label: LABEL_CURRENT_PRICE, minWidth: 170, align: CSS_RIGHT},
+  { id: 'high_24h', label: LABEL_HIGH_24_HRS_PRICE, minWidth: 170, align: CSS_RIGHT},
+  { id: 'low_24h', label: LABEL_LOW_24_HRS_PRICE, minWidth: 170, align: CSS_RIGHT},
 ];
 
 const style = {
@@ -160,26 +161,26 @@ export default function StickyHeadTable(props={}) {
         <Box sx={style}>
             <Grid container spacing={3}>
                 <Grid item xs>
-                    <Typography variant="h6" component="h2">Name: </Typography>
+                    <Typography variant="h6" component="h2">{LABEL_NAME}: </Typography>
                     {name}
                 </Grid>
                 <Grid item xs>
-                    <Typography variant="h6" component="h2">Symbol: </Typography>
+                    <Typography variant="h6" component="h2">{LABEL_SYMBOL}: </Typography>
                     {symbol}
                 </Grid>
                 <Grid item xs>
-                    <Typography variant="h6" component="h2">Hashing algorithm: </Typography>
+                    <Typography variant="h6" component="h2">{LABEL_HASHING_ALGO}: </Typography>
                     {hashing_algorithm}
                 </Grid>
             </Grid>
             <Grid container>
-                <Typography variant="h6" component="h2">Discription:</Typography>
+                <Typography variant="h6" component="h2">{LABEL_DISCRIPTION}:</Typography>
                 <Grid item>
                     <div dangerouslySetInnerHTML={{__html: en}}/>
                 </Grid>
             </Grid>
             <Typography variant="h6" component="h2">
-              Genesis Date:
+              {LABEL_GENESIS_DT}:
             </Typography>
             {genesis_date}
         </Box>
