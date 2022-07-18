@@ -16,6 +16,7 @@ import {
     LABEL_HASHING_ALGO, LABEL_DISCRIPTION, LABEL_GENESIS_DT
 } from '../constants';
 
+//create columns
 const columns = [
   { id: 'image', label: '', minWidth: 30 },
   { id: 'name', label: LABEL_NAME, minWidth: 100 },
@@ -39,16 +40,16 @@ const style = {
 
 export default function StickyHeadTable(props={}) {
     
-    const [page, setPage] = useState(null);
-    const [rowsPerPage, setRowsPerPage] = useState(10);
-    const [open, setOpen] = useState(false);
-    const [selectedID, setID] = useState('');
-    const [modalData, setModalData] = useState({})
-    const handleClose = () => setOpen(false);
+  const [page, setPage] = useState(null);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [open, setOpen] = useState(false);
+  const [selectedID, setID] = useState('');
+  const [modalData, setModalData] = useState({})
+  const handleClose = () => setOpen(false);
 
-    const handleChangePage = (event, newPage) => {
-        setPage(newPage);
-    };
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
 
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(+event.target.value);
@@ -65,6 +66,7 @@ export default function StickyHeadTable(props={}) {
     } = info;
     if(id !== selectedID){
         let url = new URL(`${API_URL}/${id}`);
+        //fetch the data for individual coin
         const fetchData = async () => {
             try {
                 const response = await fetch(url);
