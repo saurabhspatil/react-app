@@ -1,8 +1,47 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen, unmountComponentAtNode } from '@testing-library/react';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+// test('renders link', () => {
+//   render(<App />);
+//   expect().toBeInTheDocument();
+// });
+
+import { MemoryRouter } from "react-router-dom";
+import App from './App';
+import AppContainer from './components/mainContainer';
+import CoinDetails  from './components/coinDetails';
+// app.test.js
+it("navigates home", () => {
+  // in a real test a renderer like "@testing-library/react"
+  // would take care of setting up the DOM elements
+  const root = document.createElement('div');
+  document.body.appendChild(root);
+
+  // Render app
+  render(
+    <MemoryRouter initialEntries={['/']}>
+      <AppContainer />
+    </MemoryRouter>,
+    root
+  );
+
+  // Check correct page content showed up
+  expect(document.body.textContent).toBe('0');
+});
+
+it("navigates Id page", () => {
+  // in a real test a renderer like "@testing-library/react"
+  // would take care of setting up the DOM elements
+  const root = document.createElement('div');
+  document.body.appendChild(root);
+
+  // Render app
+  render(
+    <MemoryRouter initialEntries={['/view-coin-details/:id']}>
+      <CoinDetails />
+    </MemoryRouter>,
+    root
+  );
+
+  // Check correct page content showed up
+  expect(document.body.textContent).toBe('Name: Symbol: Hashing algorithm: Discription:Genesis Date:Back');
 });
