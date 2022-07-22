@@ -70,7 +70,7 @@ export default function StickyHeadTable(props={}) {
 
   const {
     tableData = []
-  } = props;;
+  } = props;
   
   return (
     <>
