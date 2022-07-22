@@ -1,13 +1,8 @@
-import React from 'react';
-import { shallow, configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15'
+import { render, screen, unmountComponentAtNode } from '@testing-library/react';
+import { MemoryRouter } from "react-router-dom";
 import AppContainer from '../components/mainContainer';
 
+const mockSetState = jest.fn();
 
-describe('<AppContainer /> with no props', () => {
-    const container = shallow(<AppContainer />);
-    it('should match the snapshot', () => {
-      expect(container.html()).toMatchSnapshot();
-    });
-
+it("render mainContainer", () => {
 })

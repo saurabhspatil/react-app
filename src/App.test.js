@@ -1,10 +1,4 @@
 import { render, screen, unmountComponentAtNode } from '@testing-library/react';
-
-// test('renders link', () => {
-//   render(<App />);
-//   expect().toBeInTheDocument();
-// });
-
 import { MemoryRouter } from "react-router-dom";
 import App from './App';
 import AppContainer from './components/mainContainer';
