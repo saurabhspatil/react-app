@@ -48,7 +48,7 @@ const columns = [
 
 export default function StickyHeadTable(props={}) {
     
-  const [page, setPage] = useState(null);
+  const [page, setPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [open, setOpen] = useState(false);
   const [selectedID, setID] = useState('');
