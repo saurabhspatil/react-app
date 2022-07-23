@@ -58,30 +58,29 @@ export default function CoinDetails() {
             <CardContent>
             <Grid container spacing={3}>
                 <Grid item xs>
-                    <Typography variant="h6" component="h2">{LABEL_NAME}: </Typography>
-                    {name}
+                    <Typography variant="h6" component="h2" style={{fontWeight: "700"}}>{LABEL_NAME}: <span style={{fontWeight: "normal"}}>{name}</span></Typography>
                 </Grid>
                 <Grid item xs>
-                    <Typography variant="h6" component="h2">{LABEL_SYMBOL}: </Typography>
-                    {symbol}
+                    <Typography variant="h6" component="h2" style={{fontWeight: "700"}}>{LABEL_SYMBOL}: <span style={{fontWeight: "normal"}}>{symbol}</span></Typography>
                 </Grid>
                 <Grid item xs>
-                    <Typography variant="h6" component="h2">{LABEL_HASHING_ALGO}: </Typography>
-                    {hashing_algorithm}
+                    <Typography variant="h6" component="h2" style={{fontWeight: "700"}}>{LABEL_HASHING_ALGO}: <span style={{fontWeight: "normal"}}>{hashing_algorithm}</span>
+                    </Typography>
                 </Grid>
             </Grid>
             <Grid container sx={{marginTop:2}}>
-                <Typography variant="h6" component="h2">{LABEL_DISCRIPTION}:</Typography>
+                <Typography variant="h6" component="h2" style={{fontWeight: "700"}}>{LABEL_DISCRIPTION}:</Typography>
                 <Grid item>
-                    <div dangerouslySetInnerHTML={{__html: en}}/>
+                    <div style={{fontSize: "14"}} dangerouslySetInnerHTML={{__html: en}}/>
                 </Grid>
             </Grid>
-            <Typography variant="h6" component="h2" sx={{marginTop:2}}>{LABEL_GENESIS_DT}:</Typography>
-                {genesis_date}
+            <Typography variant="h6" component="h2" sx={{marginTop:2}} style={{fontWeight: "700"}}>{LABEL_GENESIS_DT}: 
+                <span style={{fontWeight: "normal"}}> {genesis_date}</span>
+            </Typography>
             </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" color="primary">
+                <Button size="medium" variant="contained" href="#contained-buttons">
                     <Link to={`/`}>Back</Link>
                 </Button>
             </CardActions>

@@ -2,22 +2,43 @@ import React, { useState } from 'react';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import Grid from '@mui/material/Grid';
+import { styled } from '@mui/material/styles';
 import { Link } from "react-router-dom";
 import {
-    API_URL, LABEL_NAME, LABEL_SYMBOL, LABEL_CURRENT_PRICE, LABEL_HIGH_24_HRS_PRICE, LABEL_LOW_24_HRS_PRICE, CSS_RIGHT,
-    LABEL_HASHING_ALGO, LABEL_DISCRIPTION, LABEL_GENESIS_DT
+    API_URL, LABEL_NAME, LABEL_SYMBOL, LABEL_CURRENT_PRICE, LABEL_HIGH_24_HRS_PRICE, LABEL_LOW_24_HRS_PRICE, CSS_RIGHT
 } from '../constants';
 
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: '#f16c6c',
+    color: theme.palette.common.white,
+    fontSize: 18,
+    fontWeight: 'bold'
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  '&:nth-of-type(odd)': {
+    backgroundColor: theme.palette.action.hover,
+  },
+  // hide last border
+  '&:last-child td, &:last-child th': {
+    border: 0,
+  },
+}));
 
 //create columns
 const columns = [
-  { id: 'image', label: '', minWidth: 30 },
+  { id: 'image', label: '', width: 30},
   { id: 'name', label: LABEL_NAME, minWidth: 100 },
   { id: 'symbol', label: LABEL_SYMBOL, minWidth: 30 },
   { id: 'current_price', label: LABEL_CURRENT_PRICE, minWidth: 170, align: CSS_RIGHT},
@@ -76,18 +97,18 @@ export default function StickyHeadTable(props={}) {
     <>
     <Grid item xs={'auto'}>
     <Paper sx={{ overflow: 'hidden' }}>
-      <TableContainer sx={{ maxHeight: '80vh', margin: 2}}>
+      <TableContainer sx={{ maxHeight: '80vh', margin: 2, width: '98%'}}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
               {columns.map((column) => (
-                <TableCell
+                <StyledTableCell
                   key={column.id}
                   align={column.align}
                   style={{ minWidth: column.minWidth }}
                 >
                   {column.label}
-                </TableCell>
+                </StyledTableCell>
               ))}
             </TableRow>
           </TableHead>
@@ -96,20 +117,20 @@ export default function StickyHeadTable(props={}) {
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
-                  <TableRow hover role="checkbox" 
+                  <StyledTableRow hover role="checkbox" 
                     tabIndex={-1} 
                     key={row.id}>
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (
-                        <TableCell key={column.id} align={column.align}>
+                        <StyledTableCell key={column.id} align={column.align}>
                           {column?.id === 'image'
                             ? renderImage(row)
                             : renderLink(value, column, row)}
-                        </TableCell>
+                        </StyledTableCell>
                       );
                     })}
-                  </TableRow>
+                  </StyledTableRow>
                 );
               })}
           </TableBody>

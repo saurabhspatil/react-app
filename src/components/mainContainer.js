@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import TableView from './tableView';
+import CircularProgress from '@mui/material/CircularProgress';
 import {
     API_URL, COINS_MARKET, EUR_CURR, MARKET_CAP_DESC
 } from '../constants';
@@ -32,10 +33,10 @@ const AppContainer = () => {
 
     return (
         <>
-        {tableData.length &&
+        {tableData?.length ?
             <TableView
                 tableData={tableData}
-            />
+            /> : <CircularProgress color="inherit" />
         }
         </>
     )
