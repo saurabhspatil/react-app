@@ -47,7 +47,7 @@ afterEach(() => {
   container = null;
 });
 
-it("renders with or without a name", () => {
+it("renders with or without data", () => {
   act(() => {
     render(<StickyHeadTable tableData={mockData}/>, container);
   });
