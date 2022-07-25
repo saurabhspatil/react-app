@@ -1,7 +1,7 @@
 # Getting Started with Create React App
 
 This project was created with latest React Version: 18.2.0 \
-This project consist of React hooks and API call which is implemented with fetch. \
+This project consist of React hooks and API call which is implemented with fetch.
 For routing we have react-router library which is implemented in project. \
 
 ## Available Scripts
