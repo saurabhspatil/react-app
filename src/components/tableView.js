@@ -48,7 +48,7 @@ const columns = [
 
 export default function StickyHeadTable(props={}) {
     
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [open, setOpen] = useState(false);
   const [selectedID, setID] = useState('');
@@ -67,7 +67,7 @@ export default function StickyHeadTable(props={}) {
   }
 
   const renderLink = (data, column, row) => {
-    return <>{ column?.id === 'name' ? <Link to={`/view-coin-details/${row.id}`}>{data}</Link> : data }</>
+    return <>{ column?.id === 'name' ? <Link to={`/view-coin-details/${row.id}`}>{data}</Link> : column?.id === 'symbol' ? data : data.toFixed(2)}</>
   }
   const showSelectedDataDetails = (info) => {
     const {

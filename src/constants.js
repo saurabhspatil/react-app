@@ -10,5 +10,5 @@ export const LABEL_HIGH_24_HRS_PRICE = 'High 24 hour price';
 export const LABEL_LOW_24_HRS_PRICE = 'Low 24 hour price';
 export const CSS_RIGHT = 'right';
 export const LABEL_HASHING_ALGO = 'Hashing algorithm';
-export const LABEL_DISCRIPTION = 'Discription';
+export const LABEL_DISCRIPTION = 'Description';
 export const LABEL_GENESIS_DT= 'Genesis Date';

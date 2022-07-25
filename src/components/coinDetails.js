@@ -80,7 +80,7 @@ export default function CoinDetails() {
             </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="medium" variant="contained" href="#contained-buttons">
+                <Button size="medium" variant="contained" href="#contained-buttons" className="white-color">
                     <Link to={`/`}>Back</Link>
                 </Button>
             </CardActions>

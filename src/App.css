@@ -27,6 +27,15 @@
   color: #61dafb;
 }
 
+.white-color a{ 
+  color: #fff !important; 
+}
+
+.MuiCardActions-root{
+  display: flex;
+  justify-content: flex-end;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
