@@ -19,7 +19,7 @@ it("navigates home", () => {
   );
 
   // Check correct page content showed up
-  expect(document.body.textContent).toBe('0');
+  expect(document.body.textContent).toBe('');
 });
 
 it("navigates Id page", () => {
@@ -37,5 +37,5 @@ it("navigates Id page", () => {
   );
 
   // Check correct page content showed up
-  expect(document.body.textContent).toBe('Name: Symbol: Hashing algorithm: Discription:Genesis Date:Back');
+  expect(document.body.textContent).toBe('Name: Symbol: Hashing algorithm: Description:Genesis Date: Back');
 });
